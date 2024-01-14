@@ -1,8 +1,13 @@
 // a) who has worked for 7 consecutive days.
 
+//importing xlsx library in order to work with xlsx files and fetch data from them.
 const XLSX = require('xlsx');
 const workbook = XLSX.readFile('/content/Assignment_Timecard.xlsx');
+
+// This line creates a constant variable (sheet_name_list) and assigns it the list of sheet names from an Excel workbook (workbook).
 const sheet_name_list = workbook.SheetNames;
+
+//Here, another constant variable (data) is created. It uses the sheet_to_json function from the XLSX.utils object to convert the data in the first sheet (index 0) of the workbook into a JSON format.
 const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
 // Calculate the number of consecutive days worked for each employee
